@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans:
+    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+
+  /* 종이 같은 따뜻한 중립색 — 빈티지 의류라는 소재에 맞춘 팔레트 */
+  --color-paper: #fbf8f3;
+  --color-paper-deep: #f2ece1;
+  --color-ink: #171310;
+  --color-ink-soft: #4a423b;
+  --color-ink-muted: #857a6e;
+  --color-line: #e7dfd2;
+  --color-line-soft: #f0e9dd;
+
+  --color-rust: #c2461f;
+  --color-rust-deep: #9c3616;
+  --color-olive: #4a5d3a;
+  --color-sand: #d8c9ae;
+
+  --radius-card: 14px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    /* 한글은 자간을 살짝 좁히면 훨씬 정돈돼 보인다 */
+    letter-spacing: -0.017em;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-rust);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  /* 숫자를 표처럼 정렬해서 가격이 흔들리지 않게 */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .shell {
+    width: 100%;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 32px;
+    }
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
