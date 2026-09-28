@@ -1,3 +1,8 @@
+/**
+ * 카테고리·브랜드 필터가 있는 예전 전체 목록 페이지.
+ * 상품 수가 적을 때는 쓰지 않고 홈의「전체 상품」만 보여 준다.
+ * 나중에 필터를 다시 켤 때 이 파일을 라우트에 붙이면 된다.
+ */
 import { useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { LotCard } from '../components/LotCard'

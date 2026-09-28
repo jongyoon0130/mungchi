@@ -9,7 +9,6 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden pb-16 pt-14 sm:pb-20 sm:pt-20">
-      {/* 배경의 따뜻한 번짐 — 종이 위에 조명을 얹은 느낌 */}
       <div
         className="pointer-events-none absolute -right-40 -top-48 size-[640px] rounded-full opacity-50 blur-3xl"
         style={{
@@ -33,20 +32,18 @@ export function Hero() {
         </h1>
 
         <p className="mt-7 max-w-xl text-[17px] leading-relaxed text-ink-soft">
-          검품하고 전부 펼쳐 사진 찍은 묶음만 올립니다. 한 장씩 넘겨 보는 영상과
-          개당 단가까지 다 보고 나서, 살지 말지만 정하시면 됩니다.
+          등록된 상품을 둘러보고, 묶음별 구성과 가격을 확인해보세요.
         </p>
 
-        {/* 사는 쪽과 파는 쪽이 첫 화면에서 갈라지게 한다 */}
         <div className="mt-9 flex flex-wrap items-center gap-2.5">
           {hasLots ? (
-            <Link
-              to="/bundles"
+            <a
+              href="#products"
               className="inline-flex h-13 items-center gap-2 rounded-full bg-ink px-7 text-[15.5px] font-bold text-paper transition-transform hover:scale-[1.03] active:scale-95"
             >
-              판매 중 묶음 보기
+              전체 상품 보기
               <Icon name="arrow" className="size-4" />
-            </Link>
+            </a>
           ) : (
             <Link
               to="/signup"

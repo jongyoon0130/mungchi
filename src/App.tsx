@@ -3,7 +3,6 @@ import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { ScrollToTop } from './components/ScrollToTop'
 import Home from './pages/Home'
-import Bundles from './pages/Bundles'
 import BundleDetail from './pages/BundleDetail'
 import Sell from './pages/Sell'
 import Signup from './pages/Signup'
@@ -19,7 +18,8 @@ export default function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/bundles" element={<Bundles />} />
+          {/* 상품이 적을 때는 별도 목록 페이지 없이 홈의 전체 상품으로 보낸다 */}
+          <Route path="/bundles" element={<Navigate to="/#products" replace />} />
           <Route path="/bundles/:id" element={<BundleDetail />} />
           <Route path="/sell" element={<Sell />} />
           <Route path="/signup" element={<Signup />} />
@@ -28,7 +28,7 @@ export default function App() {
           <Route path="/register" element={<RegisterLot />} />
 
           {/* 경매로 쓰던 시절 주소. 저장해 둔 링크가 깨지지 않게 넘겨 준다 */}
-          <Route path="/auctions" element={<Navigate to="/bundles" replace />} />
+          <Route path="/auctions" element={<Navigate to="/#products" replace />} />
           <Route
             path="/auctions/:id"
             element={<LegacyLotRedirect />}

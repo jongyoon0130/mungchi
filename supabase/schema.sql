@@ -14,6 +14,7 @@ create table if not exists public.lots (
   department      text        not null default 'unisex'
                               check (department in ('men', 'women', 'unisex', 'kids')),
   category        text        not null,
+  brand           text        not null default '',  -- 공개 필터 준비용. 지금은 등록만.
   grade           text        not null,
   season          text        not null,
   pieces          integer     not null check (pieces > 0),
@@ -42,6 +43,7 @@ do $$
 begin
   -- 새 컬럼부터 만든다
   alter table public.lots add column if not exists department    text;
+  alter table public.lots add column if not exists brand         text;
   alter table public.lots add column if not exists video         text;
   alter table public.lots add column if not exists price         integer;
   alter table public.lots add column if not exists list_price    integer;
@@ -77,11 +79,13 @@ begin
 
   -- 빈칸 채우고 제약을 건다
   update public.lots set department    = 'unisex' where department is null;
+  update public.lots set brand         = coalesce(brand, '') where brand is null;
   update public.lots set free_shipping = false    where free_shipping is null;
   update public.lots set listed_at     = now()    where listed_at is null;
   update public.lots set price         = 0        where price is null;
 
   alter table public.lots alter column department    set not null;
+  alter table public.lots alter column brand         set default '';
   alter table public.lots alter column free_shipping set not null;
   alter table public.lots alter column listed_at     set not null;
   alter table public.lots alter column price         set not null;
@@ -120,6 +124,8 @@ drop index if exists lots_ends_at_idx;
 create index if not exists lots_listed_at_idx  on public.lots (listed_at desc);
 create index if not exists lots_status_idx     on public.lots (status);
 create index if not exists lots_department_idx on public.lots (department);
+create index if not exists lots_category_idx   on public.lots (category);
+create index if not exists lots_brand_idx      on public.lots (brand);
 
 -- ─────────────────────────────────────────────────────────────
 -- 4. 접근 권한

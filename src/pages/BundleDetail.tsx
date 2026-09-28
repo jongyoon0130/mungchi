@@ -5,7 +5,7 @@ import { Thumb } from '../components/Thumb'
 import { LotCard } from '../components/LotCard'
 import { discountRate, pricePerPiece } from '../data/lots'
 import { useLot, useLots } from '../lib/useLots'
-import { categoryMap, departmentMap } from '../data/categories'
+import { departmentMap } from '../data/categories'
 import { gradeLabel, gradeNote, krw } from '../lib/format'
 import { site, sellingRules } from '../config'
 import type { Lot } from '../data/types'
@@ -52,25 +52,22 @@ export default function BundleDetail() {
           이미 판매됐거나 주소가 잘못되었습니다.
         </p>
         <Link
-          to="/bundles"
+          to="/#products"
           className="mt-7 inline-flex h-11 items-center rounded-full bg-ink px-6 text-[14.5px] font-semibold text-paper"
         >
-          묶음 목록으로
+          전체 상품으로
         </Link>
       </div>
     )
   }
 
-  const category = categoryMap.get(lot.category)!
   const department = departmentMap.get(lot.department)
   const discount = discountRate(lot)
   const perPiece = pricePerPiece(lot)
 
   const media = mediaOrder(lot)
 
-  const related = allLots
-    .filter((l) => l.id !== lot.id && l.category === lot.category)
-    .slice(0, 4)
+  const related = allLots.filter((l) => l.id !== lot.id).slice(0, 4)
 
   return (
     <div className="pb-8">
@@ -80,8 +77,8 @@ export default function BundleDetail() {
             홈
           </Link>
           <span className="mx-1.5">/</span>
-          <Link to="/bundles" className="hover:text-ink">
-            묶음
+          <Link to="/#products" className="hover:text-ink">
+            전체 상품
           </Link>
           <span className="mx-1.5">/</span>
           <span className="text-ink">{lot.title}</span>
@@ -284,15 +281,10 @@ export default function BundleDetail() {
 
               {/* 묶음 정보 — 스크린샷의 아래쪽 표 */}
               <dl className="mt-6 divide-y divide-line-soft border-t border-line">
+                {lot.brand ? (
+                  <InfoRow label="브랜드">{lot.brand}</InfoRow>
+                ) : null}
                 <InfoRow label="부문">{department?.name ?? '공용'}</InfoRow>
-                <InfoRow label="카테고리">
-                  <Link
-                    to={`/bundles?category=${lot.category}`}
-                    className="font-semibold text-rust underline decoration-rust/30 underline-offset-2 hover:decoration-rust"
-                  >
-                    {category.name}
-                  </Link>
-                </InfoRow>
                 <InfoRow label="상태 등급">{gradeLabel[lot.grade]}</InfoRow>
                 <InfoRow label="시즌">{lot.season}</InfoRow>
                 <InfoRow label="총 중량">{lot.weightKg}kg</InfoRow>
@@ -310,7 +302,7 @@ export default function BundleDetail() {
       {related.length > 0 && (
         <section className="shell mt-6">
           <h2 className="text-[21px] font-extrabold tracking-[-0.03em]">
-            같은 카테고리의 다른 묶음
+            다른 상품
           </h2>
           <div className="mt-6 grid grid-cols-2 gap-3.5 md:grid-cols-4">
             {related.map((l) => (

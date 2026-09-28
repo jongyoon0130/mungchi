@@ -171,9 +171,10 @@ function AdminList() {
                   {lot.title}
                 </Link>
                 <p className="mt-0.5 text-[12.5px] text-ink-muted tnum">
-                  {categoryMap.get(lot.category)?.name} ·{' '}
-                  {gradeLabel[lot.grade]} · {lot.pieces}장 · 사진{' '}
-                  {lot.photos.length}장 · 영상 {lot.video ? '있음' : '없음'}
+                  {categoryMap.get(lot.category)?.name}
+                  {lot.brand ? ` · ${lot.brand}` : ''} · {gradeLabel[lot.grade]}{' '}
+                  · {lot.pieces}장 · 사진 {lot.photos.length}장 · 영상{' '}
+                  {lot.video ? '있음' : '없음'}
                 </p>
               </div>
 

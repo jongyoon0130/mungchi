@@ -10,7 +10,7 @@ export const departments: Department[] = [
 
 export const departmentMap = new Map(departments.map((d) => [d.id, d]))
 
-/** 앞으로 다룰 카테고리. 묶음이 올라오면 이 기준으로 분류한다. */
+/** 등록·이후 공개 필터용 카테고리. 지금은 공개 탐색에 쓰지 않는다. */
 export const categories: Category[] = [
   { id: 'outer', name: '아우터', blurb: '항공점퍼 · 코치자켓 · 플리스' },
   { id: 'denim', name: '데님', blurb: '501 · 와이드 · 부츠컷' },

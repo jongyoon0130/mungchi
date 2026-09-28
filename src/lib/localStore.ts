@@ -97,7 +97,7 @@ async function toLot(stored: StoredLot, mediaStore: IDBObjectStore) {
     : undefined
 
   const { photoKeys: _photoKeys, videoKey: _videoKey, ...rest } = stored
-  return { ...rest, photos, video } as Lot
+  return { ...rest, brand: rest.brand ?? '', photos, video } as Lot
 }
 
 export const localStore: LotStore = {

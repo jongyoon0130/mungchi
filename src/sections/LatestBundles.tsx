@@ -7,24 +7,21 @@ import { useLots } from '../lib/useLots'
 
 export function LatestBundles() {
   const { data: lots, loading } = useLots()
-  const showing = lots.slice(0, 8)
 
   return (
-    <section className="border-y border-line bg-paper-deep/60 py-20">
+    <section
+      id="products"
+      className="scroll-mt-20 border-y border-line bg-paper-deep/60 py-20"
+    >
       <div className="shell">
         <SectionHead
-          eyebrow="판매 중"
-          title={
-            loading || showing.length > 0
-              ? '지금 바로 살 수 있는 묶음'
-              : '첫 묶음을 준비하고 있습니다'
-          }
+          eyebrow="상품"
+          title="전체 상품"
           body={
-            showing.length > 0
-              ? '최근에 올라온 순서입니다. 적힌 값이 그대로 판매가이고, 개당 단가까지 계산해 두었습니다.'
+            lots.length > 0
+              ? '등록된 상품을 둘러보고, 묶음별 구성과 가격을 확인해보세요.'
               : undefined
           }
-          moreTo={showing.length > 0 ? '/bundles' : undefined}
         />
 
         {loading ? (
@@ -36,9 +33,9 @@ export function LatestBundles() {
               />
             ))}
           </div>
-        ) : showing.length > 0 ? (
+        ) : lots.length > 0 ? (
           <div className="mt-9 grid grid-cols-2 gap-3.5 md:grid-cols-4">
-            {showing.map((lot) => (
+            {lots.map((lot) => (
               <LotCard key={lot.id} lot={lot} />
             ))}
           </div>

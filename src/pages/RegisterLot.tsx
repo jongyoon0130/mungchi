@@ -71,6 +71,7 @@ function RegisterForm() {
   const [summary, setSummary] = useState('')
   const [department, setDepartment] = useState<DepartmentId>('unisex')
   const [category, setCategory] = useState<CategoryId>('outer')
+  const [brand, setBrand] = useState('')
   const [grade, setGrade] = useState<Grade>('A')
   const [season, setSeason] = useState<Season>('사계절')
   const [origin, setOrigin] = useState('')
@@ -131,6 +132,7 @@ function RegisterForm() {
       summary,
       department,
       category,
+      brand,
       grade,
       season,
       pieces: piecesNum || 1,
@@ -152,6 +154,7 @@ function RegisterForm() {
       summary,
       department,
       category,
+      brand,
       grade,
       season,
       piecesNum,
@@ -229,6 +232,7 @@ function RegisterForm() {
           summary,
           department,
           category,
+          brand,
           grade,
           season,
           pieces: piecesNum,
@@ -417,7 +421,11 @@ function RegisterForm() {
                   }))}
                 />
               </Field>
-              <Field label="카테고리" required>
+              <Field
+                label="카테고리"
+                required
+                hint="공개 화면에는 아직 안 나뉩니다. 상품이 늘면 필터에 씁니다."
+              >
                 <Select
                   value={category}
                   onChange={setCategory}
@@ -428,6 +436,17 @@ function RegisterForm() {
                 />
               </Field>
             </div>
+
+            <Field
+              label="브랜드"
+              hint="공개 필터에는 아직 안 나옵니다. 상품이 늘면 브랜드별 탐색에 씁니다. 여러 개면 쉼표로 적어 주세요."
+            >
+              <TextInput
+                value={brand}
+                onChange={setBrand}
+                placeholder="나이키, 아디다스"
+              />
+            </Field>
 
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="시즌" required>

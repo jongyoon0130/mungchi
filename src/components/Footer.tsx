@@ -33,10 +33,10 @@ export function Footer() {
               소매업체
             </h3>
             <ul className="mt-4 space-y-2.5">
-              <FooterLink to="/bundles">판매 중 묶음</FooterLink>
+              <FooterLink to="/#products">전체 상품</FooterLink>
               <FooterLink to="/signup">소매업체 가입</FooterLink>
-              <FooterLink to="/#how">거래 방식</FooterLink>
-              <FooterLink to="/#faq">자주 묻는 질문</FooterLink>
+              <FooterLink to="/#how">이용 안내</FooterLink>
+              <FooterLink to="/#contact">문의</FooterLink>
             </ul>
           </div>
 

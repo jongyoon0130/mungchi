@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom'
 import type { Lot } from '../data/types'
 import { discountRate, pricePerPiece } from '../data/lots'
-import { categoryMap } from '../data/categories'
 import { gradeLabel, krw, manwon } from '../lib/format'
 import { Thumb } from './Thumb'
 import { Icon } from './Icon'
 
 export function LotCard({ lot }: { lot: Lot }) {
-  const category = categoryMap.get(lot.category)
   const discount = discountRate(lot)
 
   return (
@@ -62,7 +60,7 @@ export function LotCard({ lot }: { lot: Lot }) {
 
       <div className="flex flex-1 flex-col p-3.5">
         <p className="text-[12px] font-semibold text-ink-muted">
-          {category?.name} · {lot.origin}
+          {[lot.brand, lot.origin].filter(Boolean).join(' · ') || '묶음'}
         </p>
         <h3 className="mt-1 line-clamp-2 text-[14.5px] font-semibold leading-snug">
           {lot.title}

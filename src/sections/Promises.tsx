@@ -6,13 +6,13 @@ export function Promises() {
   return (
     <section className="shell py-20">
       <SectionHead
-        eyebrow="우리가 지키는 것"
-        title="랜덤 묶음을 팔지 않습니다"
-        body="구제 사입에서 제일 불안한 건 열어보기 전까지 모른다는 점입니다. 그 불안을 없애는 데 필요한 것만 약속합니다."
+        eyebrow="장점"
+        title="매장에 맞는 묶음을 고를 수 있습니다"
+        body="카테고리로 나누기 전에, 지금 올라온 상품을 바로 살펴보시면 됩니다."
         center
       />
 
-      <div className="mt-12 grid gap-3.5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid gap-3.5 md:grid-cols-3">
         {promises.map((p) => (
           <div
             key={p.title}

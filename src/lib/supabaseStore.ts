@@ -9,6 +9,7 @@ type Row = {
   summary: string
   department: string
   category: string
+  brand: string
   grade: string
   season: string
   pieces: number
@@ -32,6 +33,7 @@ function toLot(row: Row): Lot {
     summary: row.summary,
     department: row.department as Lot['department'],
     category: row.category as Lot['category'],
+    brand: row.brand ?? '',
     grade: row.grade as Lot['grade'],
     season: row.season as Lot['season'],
     pieces: row.pieces,
@@ -56,6 +58,7 @@ function toRow(input: Partial<LotInput>) {
   if (input.summary !== undefined) row.summary = input.summary
   if (input.department !== undefined) row.department = input.department
   if (input.category !== undefined) row.category = input.category
+  if (input.brand !== undefined) row.brand = input.brand
   if (input.grade !== undefined) row.grade = input.grade
   if (input.season !== undefined) row.season = input.season
   if (input.pieces !== undefined) row.pieces = input.pieces

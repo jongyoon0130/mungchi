@@ -49,6 +49,11 @@ export interface Lot {
   summary: string
   department: DepartmentId
   category: CategoryId
+  /**
+   * 브랜드. 공개 화면 필터에는 아직 안 쓰고, 등록 때 받아 둔다.
+   * 상품이 늘면 브랜드별 탐색에 쓸 수 있다.
+   */
+  brand: string
   grade: Grade
   season: Season
 

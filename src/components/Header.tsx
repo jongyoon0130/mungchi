@@ -7,9 +7,9 @@ import { Logo } from './Logo'
 import { Icon } from './Icon'
 
 const nav = [
-  { to: '/bundles', label: '판매 중 묶음' },
-  { to: '/#how', label: '거래 방식' },
-  { to: '/#faq', label: '자주 묻는 질문' },
+  { to: '/#products', label: '전체 상품' },
+  { to: '/#how', label: '이용 안내' },
+  { to: '/#contact', label: '문의' },
 ]
 
 function sellerLoggedIn(admin: ReturnType<typeof useAdmin>) {
@@ -51,13 +51,7 @@ export function Header() {
             <NavLink
               key={item.label}
               to={item.to}
-              className={({ isActive }) =>
-                `text-[14.5px] font-medium transition-colors hover:text-ink ${
-                  isActive && item.to === '/bundles'
-                    ? 'text-ink'
-                    : 'text-ink-soft'
-                }`
-              }
+              className="text-[14.5px] font-medium text-ink-soft transition-colors hover:text-ink"
             >
               {item.label}
             </NavLink>

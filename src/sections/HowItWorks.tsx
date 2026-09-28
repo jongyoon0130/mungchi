@@ -13,7 +13,7 @@ export function HowItWorks() {
     >
       <div className="shell">
         <SectionHead
-          eyebrow="거래 방식"
+          eyebrow="이용 안내"
           title="세 단계로 끝납니다"
           body="경매가 아닙니다. 올라온 묶음을 보고, 적힌 값이 괜찮으면 사면 됩니다."
           center

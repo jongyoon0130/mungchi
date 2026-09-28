@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Icon, type IconName } from '../components/Icon'
 import { NotifyForm } from '../components/NotifyForm'
-import { categories } from '../data/categories'
 import { sellingRules } from '../config'
 
 /**
@@ -49,11 +48,11 @@ export default function Signup() {
 
             <div className="mt-9 flex flex-wrap gap-2.5">
               <Link
-                to="/bundles"
+                to="/#products"
                 className="flex h-13 items-center gap-2 rounded-full bg-ink px-7 text-[15.5px] font-bold text-paper transition-transform hover:scale-[1.02] active:scale-95"
               >
-                <Icon name="search" className="size-[18px]" />
-                묶음 둘러보기
+                <Icon name="arrow" className="size-[18px]" />
+                전체 상품 보기
               </Link>
               <Link
                 to="/sell"
@@ -88,36 +87,13 @@ export default function Signup() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-white">
-        <div className="shell py-16 sm:py-20">
-          <h2 className="text-[26px] font-extrabold tracking-[-0.035em] sm:text-[32px]">
-            이런 품목이 올라옵니다
-          </h2>
-          <div className="mt-7 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-            {categories.map((c) => (
-              <Link
-                key={c.id}
-                to={`/bundles?category=${c.id}`}
-                className="rounded-card border border-line bg-paper p-4 transition-colors hover:border-ink/25"
-              >
-                <p className="text-[15px] font-bold">{c.name}</p>
-                <p className="mt-1 text-[12.5px] leading-snug text-ink-muted">
-                  {c.blurb}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="border-t border-line">
         <div className="shell py-16 text-center sm:py-20">
           <h2 className="text-[24px] font-extrabold tracking-[-0.035em] sm:text-[28px]">
             새 묶음이 올라오면 알려드릴까요?
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-ink-soft">
-            찾으시는 품목을 남겨 주시면 해당하는 묶음이 올라올 때 먼저
-            알려드립니다.
+            이메일을 남겨 주시면 새 상품이 올라올 때 먼저 알려드립니다.
           </p>
           <div className="mt-7 flex justify-center">
             <NotifyForm />
