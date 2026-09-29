@@ -280,7 +280,7 @@ function RegisterForm() {
             <button
               type="button"
               onClick={() => void signOut()}
-              className="h-10 rounded-full border border-rust/40 bg-white px-4 text-[14px] font-semibold text-rust transition-colors hover:border-rust/60 hover:bg-rust/5"
+              className="btn btn-line text-rust"
             >
               로그아웃
             </button>
@@ -324,7 +324,7 @@ function RegisterForm() {
                 {photoPreviews.map((src, i) => (
                   <div
                     key={src}
-                    className="relative aspect-square overflow-hidden rounded-lg border border-line"
+                    className="relative aspect-square overflow-hidden border border-line"
                   >
                     <img
                       src={src}
@@ -653,7 +653,7 @@ function RegisterForm() {
           <button
             onClick={handleSubmit}
             disabled={!canSubmit}
-            className="mt-3.5 flex h-13 w-full items-center justify-center gap-2 rounded-full bg-rust text-[15.5px] font-bold text-white transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:bg-ink-muted disabled:hover:scale-100"
+            className="btn btn-accent btn-lg mt-3.5 w-full disabled:cursor-not-allowed disabled:bg-ink-muted"
           >
             {submitting ? (
               '등록하고 있습니다...'

@@ -22,17 +22,17 @@ export function SectionHead({
         center ? 'sm:flex-col sm:items-center sm:text-center' : ''
       }`}
     >
-      <div className={center ? 'max-w-2xl' : 'max-w-2xl'}>
+      <div className="max-w-2xl">
         {eyebrow && (
-          <p className="mb-2.5 text-[12.5px] font-bold uppercase tracking-[0.14em] text-rust">
+          <p className="mb-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
             {eyebrow}
           </p>
         )}
-        <h2 className="text-[26px] font-extrabold leading-[1.25] tracking-[-0.03em] sm:text-[33px]">
+        <h2 className="text-[28px] font-extrabold leading-[1.2] tracking-[-0.03em] sm:text-[34px]">
           {title}
         </h2>
         {body && (
-          <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+          <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">
             {body}
           </p>
         )}
@@ -41,7 +41,7 @@ export function SectionHead({
       {moreTo && (
         <Link
           to={moreTo}
-          className="group flex shrink-0 items-center gap-1.5 text-[14.5px] font-semibold text-ink"
+          className="group flex shrink-0 items-center gap-1.5 text-[14px] font-medium text-ink"
         >
           {moreLabel}
           <Icon

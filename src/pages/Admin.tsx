@@ -94,14 +94,14 @@ function AdminList() {
           {isServerConfigured && (
             <button
               onClick={signOut}
-              className="h-11 rounded-full border border-line bg-white px-5 text-[14.5px] font-semibold transition-colors hover:border-ink/30"
+              className="btn btn-line"
             >
               로그아웃
             </button>
           )}
           <Link
             to="/register"
-            className="flex h-11 items-center gap-1.5 rounded-full bg-ink px-5 text-[14.5px] font-semibold text-paper transition-transform hover:scale-[1.02] active:scale-95"
+            className="btn btn-solid"
           >
             <Icon name="plus" className="size-4" strokeWidth={2.4} />새 묶음 등록
           </Link>
@@ -127,7 +127,7 @@ function AdminList() {
           </p>
           <Link
             to="/register"
-            className="mt-7 inline-flex h-12 items-center gap-1.5 rounded-full bg-rust px-6 text-[15px] font-bold text-white"
+            className="btn btn-accent mt-7"
           >
             <Icon name="plus" className="size-4" strokeWidth={2.4} />첫 묶음 등록하기
           </Link>
@@ -143,7 +143,7 @@ function AdminList() {
             >
               <Link
                 to={`/bundles/${lot.id}`}
-                className="relative size-16 shrink-0 overflow-hidden rounded-xl"
+                className="relative size-16 shrink-0 overflow-hidden border border-line"
               >
                 <Thumb lot={lot} />
                 {lot.video && (
@@ -196,7 +196,7 @@ function AdminList() {
                   }
                   disabled={busyId === lot.id}
                   aria-label={`${lot.title} 판매 상태`}
-                  className="h-10 rounded-full border border-line bg-white px-3 text-[13px] font-semibold outline-none focus:border-ink"
+                  className="h-10 border border-line bg-white px-3 text-[13px] font-semibold outline-none focus:border-ink"
                 >
                   <option value="available">판매 중</option>
                   <option value="reserved">예약중</option>
@@ -206,7 +206,7 @@ function AdminList() {
                   onClick={() => remove(lot)}
                   disabled={busyId === lot.id}
                   aria-label={`${lot.title} 지우기`}
-                  className="flex size-10 items-center justify-center rounded-full border border-line text-ink-muted transition-colors hover:border-rust/40 hover:bg-rust/8 hover:text-rust"
+                  className="flex size-10 items-center justify-center border border-line text-ink-muted transition-colors hover:border-rust/40 hover:bg-rust/8 hover:text-rust"
                 >
                   <Icon name="close" className="size-4" strokeWidth={2.2} />
                 </button>

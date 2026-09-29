@@ -1,34 +1,41 @@
-import { SectionHead } from '../components/SectionHead'
-import { Icon } from '../components/Icon'
 import { promises } from '../data/content'
 
 export function Promises() {
   return (
-    <section className="shell py-20">
-      <SectionHead
-        eyebrow="장점"
-        title="매장에 맞는 묶음을 고를 수 있습니다"
-        body="카테고리로 나누기 전에, 지금 올라온 상품을 바로 살펴보시면 됩니다."
-        center
-      />
+    <section className="py-16 sm:py-20">
+      <div className="shell">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-[28px] font-extrabold tracking-[-0.035em] sm:text-[34px]">
+            브랜드에 맞는 묶음을 골라보세요
+          </h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">
+            카테고리로 나누기 전에, 지금 올라온 상품을 바로 살펴보시면 됩니다.
+          </p>
+        </div>
 
-      <div className="mt-12 grid gap-3.5 md:grid-cols-3">
-        {promises.map((p) => (
-          <div
-            key={p.title}
-            className="rounded-card border border-line bg-white p-6 transition-colors hover:border-ink/20"
-          >
-            <span className="flex size-11 items-center justify-center rounded-xl bg-ink text-paper">
-              <Icon name={p.icon} className="size-[22px]" />
-            </span>
-            <h3 className="mt-5 text-[16.5px] font-bold leading-snug tracking-[-0.02em]">
-              {p.title}
-            </h3>
-            <p className="mt-2.5 text-[14px] leading-relaxed text-ink-soft">
-              {p.body}
-            </p>
-          </div>
-        ))}
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {promises.map((p) => (
+            <article
+              key={p.title}
+              className="relative isolate min-h-[220px] overflow-hidden rounded-[22px] sm:min-h-[240px]"
+            >
+              <img
+                src={p.image}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/30 to-ink/10" />
+              <div className="relative flex h-full min-h-[220px] flex-col justify-end p-6 text-white sm:min-h-[240px]">
+                <h3 className="break-keep text-[17px] font-extrabold leading-snug tracking-[-0.02em]">
+                  {p.title}
+                </h3>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-white/85">
+                  {p.body}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )

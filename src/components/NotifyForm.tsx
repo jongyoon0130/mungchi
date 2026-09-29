@@ -13,7 +13,7 @@ export function NotifyForm({ dark = false }: { dark?: boolean }) {
   if (!site.contactEmail) {
     return (
       <p
-        className={`text-[13.5px] ${dark ? 'text-paper/55' : 'text-ink-muted'}`}
+        className={`text-[13.5px] ${dark ? 'text-white/70' : 'text-ink-muted'}`}
       >
         알림 신청 창구를 준비하고 있습니다. 조금만 기다려 주세요.
       </p>
@@ -36,7 +36,7 @@ export function NotifyForm({ dark = false }: { dark?: boolean }) {
     return (
       <p
         className={`flex items-center gap-2 text-[14px] font-semibold ${
-          dark ? 'text-paper' : 'text-olive'
+          dark ? 'text-white' : 'text-olive'
         }`}
       >
         <Icon name="check" className="size-4" strokeWidth={2.6} />
@@ -48,14 +48,14 @@ export function NotifyForm({ dark = false }: { dark?: boolean }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`flex w-full max-w-md items-center gap-2 rounded-full border p-1.5 ${
-        dark ? 'border-paper/20 bg-white/10' : 'border-line bg-white'
+      className={`flex w-full max-w-md items-center gap-2 rounded-full border p-1 ${
+        dark ? 'border-white/25 bg-white/10' : 'border-line bg-white'
       }`}
     >
       <Icon
         name="mail"
         className={`ml-3 size-[18px] shrink-0 ${
-          dark ? 'text-paper/50' : 'text-ink-muted'
+          dark ? 'text-white/55' : 'text-ink-muted'
         }`}
       />
       <input
@@ -66,14 +66,14 @@ export function NotifyForm({ dark = false }: { dark?: boolean }) {
         placeholder="이메일 주소"
         className={`min-w-0 flex-1 bg-transparent py-2 text-[15px] outline-none ${
           dark
-            ? 'text-paper placeholder:text-paper/45'
+            ? 'text-white placeholder:text-white/45'
             : 'placeholder:text-ink-muted'
         }`}
       />
       <button
         type="submit"
-        className={`h-10 shrink-0 rounded-full px-5 text-[14.5px] font-semibold transition-transform hover:scale-[1.03] active:scale-95 ${
-          dark ? 'bg-paper text-ink' : 'bg-ink text-paper'
+        className={`btn shrink-0 ${
+          dark ? 'bg-white text-ink hover:bg-paper-deep' : 'btn-solid'
         }`}
       >
         알림 받기

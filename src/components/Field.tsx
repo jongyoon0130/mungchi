@@ -184,9 +184,9 @@ export function FormSection({
   children: React.ReactNode
 }) {
   return (
-    <section className="rounded-card border border-line bg-paper p-6">
+    <section className="rounded-[20px] border border-line bg-white p-6">
       <div className="flex items-start gap-3">
-        <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-ink text-[13px] font-bold text-paper tnum">
+        <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-ink text-[13px] font-semibold text-paper tnum">
           {step}
         </span>
         <div>

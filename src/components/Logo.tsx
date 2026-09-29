@@ -1,18 +1,49 @@
+/** 브랜드 마크. 시안의 실타래(뭉치) 스트로크. */
+export const coilPath =
+  'M28 81c-4-24 0-54 20-60 13-4 26 6 21 21-3 10-14 13-21 6-5-5 1-14 11-13 11 1 17 13 12 26-4 12-11 24-16 27'
+
+export function Coil({
+  className = '',
+  strokeWidth = 12,
+}: {
+  className?: string
+  strokeWidth?: number
+}) {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={className}
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d={coilPath}
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+export function Mark({ className = 'size-9' }: { className?: string }) {
+  return (
+    <img
+      src="/brand/mark.png?v=3"
+      alt=""
+      className={`shrink-0 object-contain ${className}`}
+      width={36}
+      height={36}
+    />
+  )
+}
+
 export function Logo({ className = '' }: { className?: string }) {
   return (
-    <span className={`flex items-center gap-2 ${className}`}>
-      <svg viewBox="0 0 28 28" className="size-7 shrink-0" aria-hidden="true">
-        {/* 옷이 겹쳐 쌓인 '묶음'을 세 겹으로 표현 */}
-        <rect x="2" y="2" width="24" height="24" rx="7" fill="#171310" />
-        <path
-          d="M8 10.5h12M8 14h12M8 17.5h7"
-          stroke="#FBF8F3"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <circle cx="19" cy="17.5" r="1.6" fill="#C2461F" />
-      </svg>
-      <span className="text-[19px] font-extrabold tracking-[-0.04em]">뭉치</span>
+    <span className={`flex items-center gap-2.5 ${className}`}>
+      <Mark className="size-9" />
+      <span className="text-[20px] font-extrabold tracking-[-0.06em]">뭉치</span>
     </span>
   )
 }

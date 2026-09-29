@@ -34,10 +34,10 @@ export function SellerLoginPanel() {
   return (
     <div className="shell py-20 sm:py-28">
       <div className="mx-auto max-w-sm">
-        <span className="inline-block rounded-full bg-ink px-2.5 py-1 text-[11.5px] font-bold text-paper">
+        <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
           판매자
         </span>
-        <h1 className="mt-3 text-[28px] font-extrabold tracking-[-0.035em]">
+        <h1 className="mt-3 text-[28px] font-semibold tracking-[-0.035em]">
           로그인
         </h1>
         <p className="mt-2.5 text-[14.5px] leading-relaxed text-ink-soft">
@@ -48,7 +48,7 @@ export function SellerLoginPanel() {
           type="button"
           onClick={handleGoogle}
           disabled={busy}
-          className="mt-8 flex h-12 w-full items-center justify-center gap-3 rounded-full border border-line bg-white text-[15px] font-bold transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-50"
+          className="btn btn-line btn-lg mt-8 w-full"
         >
           <GoogleMark />
           {busy ? '구글로 이동 중...' : 'Google로 계속하기'}
@@ -78,7 +78,7 @@ export function SellerLoginPanel() {
                 autoComplete="username"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-[14.5px] outline-none transition-colors focus:border-ink"
+                className="mt-2 w-full border border-line bg-white px-3.5 py-2.5 text-[14.5px] outline-none transition-colors focus:border-ink"
               />
             </label>
 
@@ -90,14 +90,14 @@ export function SellerLoginPanel() {
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-[14.5px] outline-none transition-colors focus:border-ink"
+                className="mt-2 w-full border border-line bg-white px-3.5 py-2.5 text-[14.5px] outline-none transition-colors focus:border-ink"
               />
             </label>
 
             <button
               type="submit"
               disabled={busy}
-              className="h-12 w-full rounded-full bg-ink text-[15px] font-bold text-paper transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-50"
+              className="btn btn-solid btn-lg w-full disabled:opacity-50"
             >
               {busy ? '로그인 중...' : '이메일로 로그인'}
             </button>

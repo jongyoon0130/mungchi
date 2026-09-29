@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Icon, type IconName } from '../components/Icon'
+import { type IconName } from '../components/Icon'
 import { NotifyForm } from '../components/NotifyForm'
 import { sellingRules } from '../config'
 
@@ -32,11 +32,10 @@ export default function Signup() {
       <section className="border-b border-line bg-paper-deep/40">
         <div className="shell py-16 sm:py-24">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 text-[12.5px] font-bold">
-              <Icon name="cart" className="size-3.5" />
+            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
               소매업체용
-            </span>
-            <h1 className="mt-5 text-[34px] font-extrabold leading-[1.15] tracking-[-0.04em] sm:text-[46px]">
+            </p>
+            <h1 className="mt-4 text-[34px] font-extrabold leading-[1.15] tracking-[-0.04em] sm:text-[46px]">
               검품 끝난 묶음을
               <br />
               적힌 값에 바로
@@ -47,18 +46,10 @@ export default function Signup() {
             </p>
 
             <div className="mt-9 flex flex-wrap gap-2.5">
-              <Link
-                to="/#products"
-                className="flex h-13 items-center gap-2 rounded-full bg-ink px-7 text-[15.5px] font-bold text-paper transition-transform hover:scale-[1.02] active:scale-95"
-              >
-                <Icon name="arrow" className="size-[18px]" />
+              <Link to="/bundles" className="btn btn-solid btn-lg">
                 전체 상품 보기
               </Link>
-              <Link
-                to="/sell"
-                className="flex h-13 items-center gap-2 rounded-full border border-line bg-white px-7 text-[15.5px] font-semibold transition-colors hover:border-ink/30"
-              >
-                <Icon name="store" className="size-[18px]" />
+              <Link to="/sell" className="btn btn-line btn-lg">
                 물건을 파시나요?
               </Link>
             </div>
@@ -67,19 +58,16 @@ export default function Signup() {
       </section>
 
       <section className="shell py-16 sm:py-20">
-        <div className="grid gap-3.5 md:grid-cols-3">
-          {perks.map((perk) => (
-            <div
-              key={perk.title}
-              className="rounded-card border border-line bg-white p-6"
-            >
-              <span className="flex size-9 items-center justify-center rounded-xl bg-paper-deep text-ink">
-                <Icon name={perk.icon} className="size-[18px]" />
-              </span>
-              <h3 className="mt-4 text-[17px] font-extrabold tracking-[-0.025em]">
+        <div className="grid gap-10 border-t border-line pt-10 md:grid-cols-3">
+          {perks.map((perk, i) => (
+            <div key={perk.title}>
+              <p className="text-[12px] font-semibold text-ink-muted tnum">
+                0{i + 1}
+              </p>
+              <h3 className="mt-3 text-[17px] font-semibold tracking-[-0.025em]">
                 {perk.title}
               </h3>
-              <p className="mt-2.5 text-[14px] leading-relaxed text-ink-soft">
+              <p className="mt-2.5 text-[14px] leading-relaxed text-ink-muted">
                 {perk.body}
               </p>
             </div>

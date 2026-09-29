@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Icon, type IconName } from '../components/Icon'
+import { type IconName } from '../components/Icon'
 import { NotifyForm } from '../components/NotifyForm'
 import { sellingRules } from '../config'
 import { krw } from '../lib/format'
@@ -48,11 +48,10 @@ export default function Sell() {
       <section className="border-b border-line bg-paper-deep/40">
         <div className="shell py-16 sm:py-24">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 text-[12.5px] font-bold">
-              <Icon name="store" className="size-3.5" />
+            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
               도매업체용
-            </span>
-            <h1 className="mt-5 text-[34px] font-extrabold leading-[1.15] tracking-[-0.04em] sm:text-[46px]">
+            </p>
+            <h1 className="mt-4 text-[34px] font-extrabold leading-[1.15] tracking-[-0.04em] sm:text-[46px]">
               창고에 있는 묶음,
               <br />
               원하는 가격에 올리세요
@@ -63,18 +62,10 @@ export default function Sell() {
             </p>
 
             <div className="mt-9 flex flex-wrap gap-2.5">
-              <Link
-                to="/register"
-                className="flex h-13 items-center gap-2 rounded-full bg-rust px-7 text-[15.5px] font-bold text-white transition-transform hover:scale-[1.02] active:scale-95"
-              >
-                <Icon name="plus" className="size-[18px]" strokeWidth={2.4} />
+              <Link to="/register" className="btn btn-accent btn-lg">
                 묶음 올리러 가기
               </Link>
-              <Link
-                to="/admin"
-                className="flex h-13 items-center gap-2 rounded-full border border-line bg-white px-7 text-[15.5px] font-semibold transition-colors hover:border-ink/30"
-              >
-                <Icon name="box" className="size-[18px]" />
+              <Link to="/admin" className="btn btn-line btn-lg">
                 내 묶음 관리
               </Link>
             </div>
@@ -86,24 +77,16 @@ export default function Sell() {
         <h2 className="text-[26px] font-extrabold tracking-[-0.035em] sm:text-[32px]">
           올리는 방법은 세 단계입니다
         </h2>
-        <div className="mt-9 grid gap-3.5 md:grid-cols-3">
+        <div className="mt-9 grid gap-10 border-t border-line pt-10 md:grid-cols-3">
           {steps.map((step, i) => (
-            <div
-              key={step.title}
-              className="rounded-card border border-line bg-white p-6"
-            >
-              <div className="flex items-center gap-2.5">
-                <span className="flex size-9 items-center justify-center rounded-xl bg-paper-deep text-ink">
-                  <Icon name={step.icon} className="size-[18px]" />
-                </span>
-                <span className="text-[12px] font-bold text-ink-muted tnum">
-                  STEP {i + 1}
-                </span>
-              </div>
-              <h3 className="mt-4 text-[17px] font-extrabold tracking-[-0.025em]">
+            <div key={step.title}>
+              <p className="text-[12px] font-semibold text-ink-muted tnum">
+                STEP 0{i + 1}
+              </p>
+              <h3 className="mt-3 text-[17px] font-semibold tracking-[-0.025em]">
                 {step.title}
               </h3>
-              <p className="mt-2.5 text-[14px] leading-relaxed text-ink-soft">
+              <p className="mt-2.5 text-[14px] leading-relaxed text-ink-muted">
                 {step.body}
               </p>
             </div>
